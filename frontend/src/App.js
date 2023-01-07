@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -10,7 +11,7 @@ import { Orders } from "./containers/Orders.jsx";
 function App() {
   return (
     <Router>
-    <Switch>
+      <Switch>
         <Route exact path="/restaurants">
           <Restaurants />
         </Route>
@@ -20,6 +21,12 @@ function App() {
         <Route exact path="/orders">
           <Orders />
         </Route>
+        // ADD: URL Param
+        <Route
+          exact
+          path="/restaurants/:restaurantsId/foods"
+          render={({ match }) => <Foods match={match} />}
+        />
       </Switch>
     </Router>
   );
